@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+
+/* Header */
+
+.header {
+    height: 75px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    border-bottom: 1px solid #e5e8ef;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: 800;
+    color: #173b72;
+    letter-spacing: 1px;
+}
+
+.logo small {
+    color: #777f8f;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #343c4d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #173b72;
+}
+
+
+/* Hero */
+
+.hero {
+    min-height: 570px;
+    padding: 80px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    background: #ffffff;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.tag {
+    color: #c0392b;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    line-height: 1.08;
+    margin-bottom: 25px;
+    color: #14213d;
+}
+
+.hero h1 span {
+    color: #1d5aa6;
+}
+
+.hero-text {
+    max-width: 600px;
+    color: #5d6675;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.primary {
+    background: #173b72;
+    color: white;
+}
+
+.primary:hover {
+    background: #0f2d58;
+}
+
+.secondary {
+    border: 1px solid #173b72;
+    color: #173b72;
+    background: white;
+}
+
+.secondary:hover {
+    background: #eef4fc;
+}
+
+
+/* Emergency Card */
+
+.emergency-card {
+    width: 340px;
+    padding: 35px;
+    border-radius: 12px;
+    background: #f7f9fc;
+    border: 1px solid #e0e5ee;
+    box-shadow: 0 12px 30px rgba(30, 50, 80, 0.08);
+}
+
+.emergency-icon {
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.emergency-card h2 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.emergency-card p {
+    color: #687181;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.search-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #c0392b;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+
+/* Services */
+
+.services {
+    padding: 80px 7%;
+    background: #f5f7fb;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title p {
+    color: #1d5aa6;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    color: #172033;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border: 1px solid #e1e5ec;
+    border-radius: 10px;
+}
+
+.service-icon {
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.service-card h3 {
+    margin-bottom: 12px;
+    font-size: 19px;
+}
+
+.service-card p {
+    color: #687181;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* How It Works */
+
+.how-section {
+    padding: 80px 7%;
+    background: white;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.step {
+    border-left: 3px solid #1d5aa6;
+    padding-left: 20px;
+}
+
+.step span {
+    color: #1d5aa6;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.step h3 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.step p {
+    color: #687181;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* Footer */
+
+footer {
+    background: #14213d;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+footer p {
+    color: #b8c0cf;
+    font-size: 14px;
+}
+
+.copyright {
+    margin-top: 18px;
+    font-size: 12px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .emergency-card {
+        width: 100%;
+    }
+
+    .service-grid,
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .header {
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .services,
+    .how-section {
+        padding: 55px 20px;
+    }
+
+    .service-grid,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* AI Assistant Button */
+
+.ai-btn {
+    background: #2638a8;
+    color: white !important;
+}
+
+.ai-btn:hover {
+    background: #1d2d91;
+}
+
+
+/* AI Disaster Helpline */
+
+.ai-helpline-box {
+    margin-top: 25px;
+    max-width: 650px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 24px;
+    background: #ffffff;
+    border: 1px solid #e1e5ee;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(30, 45, 90, 0.08);
+}
+
+.helpline-icon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef0ff;
+    font-size: 25px;
+}
+
+.helpline-content h3 {
+    margin: 0 0 5px;
+    color: #172033;
+    font-size: 18px;
+}
+
+.helpline-content p {
+    margin: 0 0 10px;
+    color: #687386;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.helpline-number {
+    color: #2638a8;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.helpline-content small {
+    display: block;
+    margin-top: 5px;
+    color: #8992a3;
+    font-size: 11px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .ai-helpline-box {
+        align-items: flex-start;
+        padding: 18px;
+    }
+
+    .helpline-number {
+        font-size: 18px;
+    }
+}

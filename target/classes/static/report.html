@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>REUNITE-X | Report Missing Person</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        body {
+            background: #f4f7fb;
+        }
+
+        .report-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .report-header {
+            background: white;
+            padding: 35px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+        }
+
+        .report-header h2 {
+            color: #12355b;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .report-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .section-tag {
+            color: #c62828;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .report-card {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+            border-left: 5px solid #12355b;
+        }
+
+        .report-card h3 {
+            color: #12355b;
+            font-size: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #d32f2f;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #ccd4df;
+            border-radius: 8px;
+            font-size: 15px;
+            box-sizing: border-box;
+            background: #fafbfd;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #12355b;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(18, 53, 91, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .privacy-box {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 25px;
+            color: #6d5500;
+            line-height: 1.6;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+
+        .clear-btn,
+        .submit-btn {
+            border: none;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .clear-btn {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+        .submit-btn {
+            background: #12355b;
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background: #0d2947;
+        }
+
+        .clear-btn:hover {
+            background: #d1d5db;
+        }
+
+        @media (max-width: 700px) {
+
+            .report-container {
+                margin: 25px auto;
+            }
+
+            .report-header {
+                padding: 25px 20px;
+            }
+
+            .report-card {
+                padding: 22px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .clear-btn,
+            .submit-btn {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+        <h1>REUNITE-X</h1>
+        <p>Disaster Family Reunification</p>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="register.html">Family Registration</a>
+        <a href="report.html">Report</a>
+        <a href="lookup.html">Find Family</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <div class="report-container">
+
+        <!-- PAGE HEADER -->
+
+        <div class="report-header">
+
+            <div class="section-tag">
+                DISASTER RESPONSE PLATFORM
+            </div>
+
+            <h2>Report a Missing Person</h2>
+
+            <p>
+                Provide accurate information to help rescue teams,
+                hospitals and authorities identify and reunite families.
+            </p>
+
+        </div>
+
+
+        <form id="reportForm">
+
+
+            <!-- CASE DETAILS -->
+
+            <div class="report-card">
+
+                <h3>Case & Family Details</h3>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Family ID
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="familyId"
+                            placeholder="Example: FAM-12345"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Reported By
+                            <span class="required">*</span>
+                        </label>
+
+                        <select id="reportedBy" required>
+
+                            <option value="">
+                                Select Reporter
+                            </option>
+
+                            <option>Family Member</option>
+                            <option>Public</option>
+                            <option>Police Station</option>
+                            <option>Hospital</option>
+                            <option>Rescue Team</option>
+                            <option>Relief Camp</option>
+                            <option>NGO / Volunteer</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MISSING PERSON DETAILS -->
+
+            <div class="report-card">
+
+                <h3>Missing Person Details</h3>
+
+                <div class="form-grid">
+
+                    <div class="form-group full">
+
+                        <label>
+                            Person Name
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="personName"
+                            placeholder="Enter missing person's full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Age
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="personAge"
+                            placeholder="Enter age"
+                            min="0"
+                            max="120"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Gender
+                            <span class="required">*</span>
+                        </label>
+
+                        <select id="personGender" required>
+
+                            <option value="">
+                                Select Gender
+                            </option>
+
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- IDENTIFICATION DETAILS -->
+
+            <div class="report-card">
+
+                <h3>Identification Details</h3>
+
+                <div class="form-grid">
+
+                    <div class="form-group full">
+
+                        <label>
+                            Missing Clothes
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="clothes"
+                            placeholder="Example: Blue shirt, black pants, black shoes"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Identification Marks
+                        </label>
+
+                        <textarea
+                            id="marks"
+                            rows="4"
+                            placeholder="Enter birth marks, scars, tattoos or other identifying details"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LAST SEEN DETAILS -->
+
+            <div class="report-card">
+
+                <h3>Last Seen Information</h3>
+
+                <div class="form-grid">
+
+                    <div class="form-group full">
+
+                        <label>
+                            Last Seen Location
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="lastLocation"
+                            placeholder="Example: Trichy Central Bus Stand"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Last Seen Date
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="date"
+                            id="lastDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Last Seen Time
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="time"
+                            id="lastTime"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ADDITIONAL INFORMATION -->
+
+            <div class="report-card">
+
+                <h3>Additional Information</h3>
+
+                <div class="form-group">
+
+                    <label>
+                        Additional Information
+                    </label>
+
+                    <textarea
+                        id="additionalInfo"
+                        rows="6"
+                        placeholder="Enter any other useful information about the missing person..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRIVACY -->
+
+            <div class="privacy-box">
+
+                <strong>Privacy & Safety</strong><br>
+
+                Please use dummy information during the hackathon demonstration.
+                Sensitive personal information should not be publicly displayed.
+                Verified authorities can access protected case information.
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="form-actions">
+
+                <button
+                    type="reset"
+                    class="clear-btn">
+
+                    Clear Form
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+
+                    Submit Missing Person Report
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 REUNITE-X | Disaster Family Reunification Platform
+    </p>
+
+</footer>
+<script>
+
+document
+.getElementById("reportForm")
+.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const report = {
+
+        familyId:
+            document.getElementById("familyId").value.trim(),
+
+        reportedBy:
+            document.getElementById("reportedBy").value.trim(),
+
+        personName:
+            document.getElementById("personName").value.trim(),
+
+        personAge:
+            parseInt(
+                document.getElementById("personAge").value
+            ) || 0,
+
+        personGender:
+            document.getElementById("personGender").value,
+
+        clothes:
+            document.getElementById("clothes").value.trim(),
+
+        marks:
+            document.getElementById("marks").value.trim(),
+
+        lastLocation:
+            document.getElementById("lastLocation").value.trim(),
+
+        lastDate:
+            document.getElementById("lastDate").value,
+
+        lastTime:
+            document.getElementById("lastTime").value,
+
+        additionalInfo:
+            document.getElementById("additionalInfo").value.trim()
+    };
+
+
+    try {
+
+        const response =
+            await fetch("/api/reports/submit", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(report)
+            });
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            alert(
+                "❌ Report submission failed."
+            );
+
+            return;
+        }
+
+
+        alert(
+            "✅ Missing Person Report Submitted Successfully!\n\n" +
+            "Case ID: " + data.caseId
+        );
+
+
+        document
+            .getElementById("reportForm")
+            .reset();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "❌ Server connection failed.\n" +
+            "Please make sure REUNITE-X backend is running."
+        );
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>

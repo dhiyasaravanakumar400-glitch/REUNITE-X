@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>REUNITE-X | AI Disaster Helpline</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+        }
+
+        .header {
+            height: 76px;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e9f0;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 24px;
+            font-weight: 800;
+            color: #2638a8;
+            letter-spacing: 1px;
+        }
+
+        .logo small {
+            color: #687386;
+            font-size: 11px;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #39445a;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #2638a8;
+        }
+
+        .helpline-page {
+            min-height: calc(100vh - 76px);
+            padding: 55px 20px 70px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .helpline-container {
+            width: 100%;
+            max-width: 850px;
+            text-align: center;
+        }
+
+        .top-icon {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 18px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e9ecff;
+            font-size: 35px;
+        }
+
+        .tag {
+            margin: 0 0 10px;
+            color: #5968d8;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .helpline-container > h1 {
+            margin: 0;
+            font-size: 42px;
+            color: #172033;
+        }
+
+        .subtitle {
+            max-width: 650px;
+            margin: 15px auto 35px;
+            color: #687386;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .assistant-card {
+            background: #ffffff;
+            border: 1px solid #e3e7ef;
+            border-radius: 22px;
+            padding: 28px;
+            text-align: left;
+            box-shadow: 0 12px 35px rgba(30, 45, 90, 0.08);
+        }
+
+        .assistant-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .ai-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: #eef0ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+        }
+
+        .assistant-header h2 {
+            margin: 0 0 4px;
+            font-size: 18px;
+            color: #172033;
+        }
+
+        .assistant-header p {
+            margin: 0;
+            font-size: 13px;
+            color: #7a8496;
+        }
+
+        .status-box {
+            margin: 20px 0;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: #f5f7fb;
+            color: #586276;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #aab2c1;
+        }
+
+        .status-dot.active {
+            background: #27ae60;
+            box-shadow: 0 0 0 5px #e4f7eb;
+        }
+
+        .conversation {
+            min-height: 190px;
+            padding: 10px 0;
+        }
+
+        .message {
+            max-width: 75%;
+            padding: 15px 17px;
+            border-radius: 14px;
+            margin-bottom: 14px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .ai-message {
+            background: #f0f2ff;
+            color: #303b63;
+            border-bottom-left-radius: 4px;
+        }
+
+        .user-message {
+            margin-left: auto;
+            background: #2638a8;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .start-area {
+            padding-top: 20px;
+            border-top: 1px solid #edf0f5;
+            text-align: center;
+        }
+
+        .start-btn {
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            background: #2638a8;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .start-btn:hover {
+            background: #1d2d91;
+            transform: translateY(-1px);
+        }
+
+        .start-btn:disabled {
+            background: #9ca5bb;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .privacy-box {
+            margin-top: 20px;
+            padding: 18px 20px;
+            background: #fffdf5;
+            border: 1px solid #f0e6bd;
+            border-radius: 13px;
+            text-align: left;
+        }
+
+        .privacy-box strong {
+            color: #665515;
+            font-size: 14px;
+        }
+
+        .privacy-box p {
+            margin: 7px 0 0;
+            color: #756b48;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .feature {
+            background: white;
+            border: 1px solid #e5e9f0;
+            border-radius: 15px;
+            padding: 20px 15px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .feature h3 {
+            margin: 0 0 5px;
+            font-size: 14px;
+        }
+
+        .feature p {
+            margin: 0;
+            color: #7a8496;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #172033;
+            color: white;
+        }
+
+        footer h3 {
+            margin: 0 0 7px;
+        }
+
+        footer p {
+            margin: 5px;
+            color: #b9c0ce;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+
+            .header {
+                height: auto;
+                padding: 18px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .helpline-container > h1 {
+                font-size: 32px;
+            }
+
+            .assistant-card {
+                padding: 20px;
+            }
+
+            .feature-row {
+                grid-template-columns: 1fr;
+            }
+
+            .message {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        <span>REUNITE-X</span>
+        <small>Disaster Family Reunification</small>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="register.html">Family Registration</a>
+        <a href="report.html">Report</a>
+        <a href="lookup.html">Find Family</a>
+    </nav>
+
+</header>
+
+
+<main class="helpline-page">
+
+    <div class="helpline-container">
+
+        <div class="top-icon">
+            🎙️
+        </div>
+
+        <p class="tag">AI DISASTER ASSISTANCE</p>
+
+        <h1>AI Voice Helpline</h1>
+
+        <p class="subtitle">
+            Get immediate assistance during a disaster.
+            Our AI assistant can collect important information
+            about a missing family member and help create a
+            structured report for response teams.
+        </p>
+
+
+        <div class="assistant-card">
+
+            <div class="assistant-header">
+
+                <div class="ai-avatar">
+                    🤖
+                </div>
+
+                <div>
+                    <h2>REUNITE-X AI Assistant</h2>
+                    <p>Disaster Response & Family Support</p>
+                </div>
+
+            </div>
+
+
+            <div class="status-box" id="statusBox">
+
+                <span class="status-dot" id="statusDot"></span>
+
+                <span id="statusText">
+                    Assistant ready
+                </span>
+
+            </div>
+
+
+            <div class="conversation" id="conversation">
+
+                <div class="message ai-message">
+
+                    Hello! I am the REUNITE-X AI Assistant.
+                    I can help you report a missing family member
+                    and collect the information needed by response teams.
+
+                </div>
+
+                <div class="message ai-message">
+
+                    When you are ready, click
+                    <strong>Start Voice Assistance</strong>
+                    to begin.
+
+                </div>
+
+            </div>
+
+
+            <div class="start-area">
+
+                <button
+                    class="start-btn"
+                    id="startBtn"
+                    onclick="startAssistant()">
+
+                    🎙️ Start Voice Assistance
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="privacy-box">
+
+            <strong>🔒 Privacy & Safety</strong>
+
+            <p>
+                This assistance feature is designed for disaster
+                response and family reunification. Conversation
+                recording and processing should be performed only
+                after the caller gives consent.
+            </p>
+
+        </div>
+
+
+        <div class="feature-row">
+
+            <div class="feature">
+
+                <div class="feature-icon">🎙️</div>
+
+                <h3>Voice Assistance</h3>
+
+                <p>
+                    Communicate naturally with the AI assistant.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">🧠</div>
+
+                <h3>Smart Analysis</h3>
+
+                <p>
+                    Extract important details from the conversation.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">📋</div>
+
+                <h3>Incident Report</h3>
+
+                <p>
+                    Generate structured information for authorities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <h3>REUNITE-X</h3>
+
+    <p>
+        Disaster Identity & Family Reunification Platform
+    </p>
+
+    <p>
+        © 2026 REUNITE-X. HackNEXT'26 Series 2.0
+    </p>
+
+</footer>
+
+
+<script>
+
+function startAssistant() {
+
+    const statusText =
+        document.getElementById("statusText");
+
+    const statusDot =
+        document.getElementById("statusDot");
+
+    const conversation =
+        document.getElementById("conversation");
+
+    const startBtn =
+        document.getElementById("startBtn");
+
+
+    statusText.innerText =
+        "Listening to caller...";
+
+    statusDot.classList.add("active");
+
+
+    conversation.innerHTML += `
+        <div class="message ai-message">
+            Before we continue, do you agree to let
+            REUNITE-X record and process this conversation
+            for disaster assistance?
+        </div>
+    `;
+
+
+    startBtn.innerText =
+        "🎙️ Listening...";
+
+    startBtn.disabled = true;
+
+}
+
+</script>
+
+</body>
+</html>
